@@ -13,6 +13,7 @@ const refs = {
 refs.btnEl.addEventListener("click", randomColor);
 
 function randomColor() {
-  refs.bodyEl.style.backgroundColor = getRandomHexColor();
-  refs.spanEl.textContent = getRandomHexColor();
+  const randomValueColor = getRandomHexColor();
+  refs.bodyEl.style.backgroundColor = randomValueColor;
+  refs.spanEl.textContent = randomValueColor;
 }
