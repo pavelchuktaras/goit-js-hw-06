@@ -6,8 +6,13 @@ form.addEventListener("submit", onFormSUbmit);
 
 function onFormSUbmit(event) {
   event.preventDefault();
-  checkMail();
-  checkPass();
+  const errorMail = checkMail();
+  const erorPass = checkPass();
+
+  if (errorMail || erorPass) {
+    alert(errorMail || erorPass);
+    return;
+  }
 
   const formEl = event.currentTarget.elements;
   const mail = formEl.email.value;
@@ -17,17 +22,18 @@ function onFormSUbmit(event) {
   console.log(formData);
 
   event.currentTarget.reset();
-  return;
+  // console.log(formData);
+  return formData;
 }
 
 function checkMail() {
   if (inputMail.value === "") {
-    return alert("Введіть Email");
+    return "Введіть Email";
   }
 }
 
 function checkPass() {
   if (inputPass.value === "") {
-    return alert("Введіть пароль");
+    return "Введіть пароль";
   }
 }

@@ -1,12 +1,12 @@
 const form = document.querySelector("#validation-input");
-const onRequiredAmount = form.getAttribute("data-length");
+const onRequiredAmount = parseInt(form.getAttribute("data-length"));
 
 const blurFormCheck = form.addEventListener("blur", inputBlur);
 
 function inputBlur() {
   const actualLength = form.value.length;
 
-  if (actualLength >= onRequiredAmount) {
+  if (onRequiredAmount === actualLength) {
     form.classList.add("valid");
     form.classList.remove("invalid");
   } else {
